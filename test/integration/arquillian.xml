@@ -12,4 +12,11 @@
 			<property name="user">tomcat</property>
 		</configuration>
 	</container>
+	<container default="true" qualifier="tomcat">
+		<configuration>
+			<property name="jmxPort">8099</property>
+			<property name="pass">tomcat</property>
+			<property name="user">tomcat</property>
+		</configuration>
+	</container>	
 </arquillian>

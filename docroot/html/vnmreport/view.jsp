@@ -1,4 +1,4 @@
-<%@include file="/html/init.jsp"%>
+<%@include file="/html/init.jsp"%> 
 <c:if test="<%=themeDisplay.isSignedIn() %>">
 	<%
    		String curTab = ParamUtil.getString(request, "curTab" , "Article");  //set the default tab
