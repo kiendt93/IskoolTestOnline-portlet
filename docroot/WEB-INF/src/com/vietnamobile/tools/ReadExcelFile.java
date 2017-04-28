@@ -87,7 +87,7 @@ public class ReadExcelFile
 				answerSelection = "";
 				if (!isDuplicate(title, content.toString()))
 				{
-					QuestionEntryLocalServiceUtil.createQuestionEntry(userId,title,subject, content.toString(),solutionA,solutionB,solutionC,solutionD, level, answer, score, serviceContext);
+					//QuestionEntryLocalServiceUtil.createQuestionEntry(userId,title,subject, content.toString(),solutionA,solutionB,solutionC,solutionD, level, answer, score, serviceContext);
 				}
 			}			
 		}
@@ -153,7 +153,7 @@ public class ReadExcelFile
 				answerSelection = "";
 				if (!isDuplicate(title, content.toString()))
 				{
-					QuestionEntryLocalServiceUtil.createQuestionEntry(userId,title,subject, content.toString(),solutionA,solutionB,solutionC,solutionD, level, answer, score, serviceContext);
+					//QuestionEntryLocalServiceUtil.createQuestionEntry(userId,title,subject, content.toString(),solutionA,solutionB,solutionC,solutionD, level, answer, score, serviceContext);
 				}
 			}			
 		}

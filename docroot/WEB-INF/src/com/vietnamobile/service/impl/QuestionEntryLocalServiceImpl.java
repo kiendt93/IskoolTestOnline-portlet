@@ -117,7 +117,7 @@ public class QuestionEntryLocalServiceImpl
 		
 		return questionEntry;
 	}
-	public QuestionEntry updateQuestionEntry (long questionEntryId, long userId, String title, String subject, String questionContent, String solutionA, String solutionB, String solutionC, String solutionD, double level, String answer, double score, ServiceContext serviceContext) throws SystemException, PortalException
+	public QuestionEntry updateQuestionEntry (long questionEntryId, long userId, String title, String subject, String questionContent, String solutionA, String solutionB, String solutionC, String solutionD, double level, String typeExam, String answer, double score, ServiceContext serviceContext) throws SystemException, PortalException
 	{
 		QuestionEntry updateQuestionEntry = questionEntryPersistence.findByPrimaryKey(questionEntryId);
 		updateQuestionEntry.setTitle(title);
@@ -128,6 +128,7 @@ public class QuestionEntryLocalServiceImpl
 		updateQuestionEntry.setC(solutionC);
 		updateQuestionEntry.setD(solutionD);
 		updateQuestionEntry.setLevelQuestion(level);
+		updateQuestionEntry.setTypeExam(typeExam);
 		updateQuestionEntry.setAnswer(answer);
 		updateQuestionEntry.setScore(score);
 		updateQuestionEntry.setModifiedDate(serviceContext.getModifiedDate(new Date()));

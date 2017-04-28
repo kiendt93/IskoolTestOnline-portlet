@@ -130,7 +130,7 @@ public class QuestionEntryLocalServiceClpInvoker {
 				"long", "long", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "double",
-				"java.lang.String", "double",
+				"java.lang.String", "java.lang.String", "double",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
@@ -280,8 +280,9 @@ public class QuestionEntryLocalServiceClpInvoker {
 				(java.lang.String)arguments[8],
 				((Double)arguments[9]).doubleValue(),
 				(java.lang.String)arguments[10],
-				((Double)arguments[11]).doubleValue(),
-				(com.liferay.portal.service.ServiceContext)arguments[12]);
+				(java.lang.String)arguments[11],
+				((Double)arguments[12]).doubleValue(),
+				(com.liferay.portal.service.ServiceContext)arguments[13]);
 		}
 
 		if (_methodName78.equals(name) &&

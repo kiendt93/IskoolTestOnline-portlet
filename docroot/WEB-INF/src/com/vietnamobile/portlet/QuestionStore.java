@@ -132,6 +132,7 @@ public class QuestionStore extends MVCPortlet {
 		String solutionC = ParamUtil.getString(actionRequest, "solutionC");
 		String solutionD = ParamUtil.getString(actionRequest, "solutionD");
 		double level = ParamUtil.getDouble(actionRequest, "level");
+		String typeExam = ParamUtil.getString(actionRequest, "typeExam");
 		String answer = ParamUtil.getString(actionRequest, "answer");
 		double score = ParamUtil.getDouble(actionRequest, "score");
 		long questionEntryId = ParamUtil.getLong(actionRequest, "questionEntryId");
@@ -141,7 +142,8 @@ public class QuestionStore extends MVCPortlet {
                 QuestionEntry.class.getName(), actionRequest);
         try
         {
-        	QuestionEntryLocalServiceUtil.updateQuestionEntry(questionEntryId, userId, title,subject, questionContent, solutionA, solutionB, solutionC, solutionD, level, answer, score, serviceContext);
+        	
+        	QuestionEntryLocalServiceUtil.updateQuestionEntry(questionEntryId, userId, title,subject, questionContent, solutionA, solutionB, solutionC, solutionD, level, typeExam, answer, score, serviceContext);
         }
         catch (Exception ex)
         {
