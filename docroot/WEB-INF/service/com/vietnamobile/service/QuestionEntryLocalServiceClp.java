@@ -131,7 +131,7 @@ public class QuestionEntryLocalServiceClp implements QuestionEntryLocalService {
 				"long", "long", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"java.lang.String", "java.lang.String", "double",
-				"java.lang.String", "double",
+				"java.lang.String", "java.lang.String", "double",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
@@ -778,7 +778,7 @@ public class QuestionEntryLocalServiceClp implements QuestionEntryLocalService {
 		java.lang.String subject, java.lang.String questionContent,
 		java.lang.String solutionA, java.lang.String solutionB,
 		java.lang.String solutionC, java.lang.String solutionD, double level,
-		java.lang.String answer, double score,
+		java.lang.String typeExam, java.lang.String answer, double score,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
@@ -807,6 +807,8 @@ public class QuestionEntryLocalServiceClp implements QuestionEntryLocalService {
 					ClpSerializer.translateInput(solutionD),
 						
 					level,
+						
+					ClpSerializer.translateInput(typeExam),
 						
 					ClpSerializer.translateInput(answer),
 						

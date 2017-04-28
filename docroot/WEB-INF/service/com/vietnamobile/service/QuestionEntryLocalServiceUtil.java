@@ -295,14 +295,14 @@ public class QuestionEntryLocalServiceUtil {
 		java.lang.String subject, java.lang.String questionContent,
 		java.lang.String solutionA, java.lang.String solutionB,
 		java.lang.String solutionC, java.lang.String solutionD, double level,
-		java.lang.String answer, double score,
+		java.lang.String typeExam, java.lang.String answer, double score,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .updateQuestionEntry(questionEntryId, userId, title,
 			subject, questionContent, solutionA, solutionB, solutionC,
-			solutionD, level, answer, score, serviceContext);
+			solutionD, level, typeExam, answer, score, serviceContext);
 	}
 
 	public static com.vietnamobile.model.QuestionEntry softDeleteQuestionEntry(
