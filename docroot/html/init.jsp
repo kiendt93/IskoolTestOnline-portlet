@@ -124,6 +124,7 @@
 	String HISTORY = "History";
 	String GEOGRAPHY = "Geography";
 	String FOREIGN_LANGUAGE = "ForeignLanguage";
+	String test="github";
 %>
 
 
