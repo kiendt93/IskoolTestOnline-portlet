@@ -75,24 +75,23 @@
 			
 		</aui:row>
 		<hr style="border-width: 2px;">
-		
 		<aui:row>
-			<div id="course" style="display: inline-block;">
-				<aui:select autofocus="true" id="course1" inlineField="true" name="course1" label= "Course" onChange='fillDetailDate();'>
-					<aui:option value="empty" label="PleaseSelectOneSubject" selected="true"></aui:option>	
-					<% for (int i = 0; i < assetCategoryListCourse.size(); i++)
-					   {
-					%>		
-					<aui:option value="<%=assetCategoryListCourse.get(i).getCategoryId()%>" label="<%= assetCategoryListCourse.get(i).getName() %>"/>
-					<%
-					   }
-					%>
-				</aui:select>
-			</div>
-				
 			<div id="specialSubject-fields">
 				<div class="lfr-form-row lfr-form-row-inline">
 					<div class="row-fields" style="display: block;">
+						
+						<div id="course" style="display: inline-block;">
+							<aui:select autofocus="true" id="course1" inlineField="true" name="course1" label= "Course" onChange='fillDetailDate();'>
+								<aui:option value="empty" label="PleaseSelectOneSubject" selected="true"></aui:option>	
+								<% for (int i = 0; i < assetCategoryListCourse.size(); i++)
+								   {
+								%>		
+								<aui:option value="<%=assetCategoryListCourse.get(i).getCategoryId()%>" label="<%= assetCategoryListCourse.get(i).getName() %>"/>
+								<%
+								   }
+								%>
+							</aui:select>
+						</div>
 						<div id="subject" style="display: inline-block;">
 							
 							<aui:select inlineField="true" name="subject1" id="subject1" label="Subject" required="true" onChange='getNumberQuestion();'>
@@ -100,6 +99,16 @@
 							</aui:select>
 						</div>
 						
+						<%-- <aui:select inlineField="true" name="subject1" id="subject1" label="Subject" required="true" onChange='fillDetailDate();'>
+							<aui:option value="empty" label="PleaseSelectOneSubject" selected="true"> </aui:option>	
+							<% for (int i = 0; i < assetCategoryListCourse.size(); i++)
+							   {
+							%>		
+							<aui:option value="<%=assetCategoryListCourse.get(i).getCategoryId()%>" label="<%= assetCategoryListCourse.get(i).getName() %>"/>
+							<%
+							   }
+							%>
+						</aui:select> --%>
 						<aui:input inlineField="true"
 							fieldParam='numberQuestionEachSubject1'
 							id='numberQuestionEachSubject1' name="numberQuestionEachSubject1"
@@ -296,35 +305,29 @@
 				function(A) 
 				{
 					var course = A.one('#course');
+					var subject = A.one('#subject');
 					if(course.one('select')){
 						var titleKey = course.one('select').get("value");
-						getListSubject(subjectJson, titleKey);
+						getListSubject(subjectJson, titleKey, subject);
 					}
 				});
 	}
-	function getListSubject(subjectJson,titleKey)
+	function getListSubject(subjectJson,titleKey, subjectSelect)
 	{
-		AUI().use('liferay-auto-fields',
-		function(A) 
+		var message = "<liferay-ui:message key='PleaseSelectOneSubject'/>";
+		subjectSelect.one('select').setHTML('<option value="empty" selected>'+message+'</option>');
+		if (titleKey == "empty")
 		{
-			A.one('#specialSubject-fields').all('.lfr-form-row-inline').each(function (node) {
-				var subjectSelect = node.one('select');
-				var message = "<liferay-ui:message key='PleaseSelectOneSubject'/>";
-				subjectSelect.setHTML('<option value="empty" selected>'+message+'</option>');
-				if (titleKey == "empty")
-				{
-					return 0;
-				}
-				
-				for( i in subjectJson )
-				{
-					if (subjectJson[i].courseID == titleKey)
-					{
-						subjectSelect.append('<option value="'+ subjectJson[i].subjectEntryId +'">' + subjectJson[i].name + "</option>");
-					}
-				}
-			});
-		});
+			return 0;
+		}
+		
+		for( i in subjectJson )
+		{
+			if (subjectJson[i].courseID == titleKey)
+			{
+				subjectSelect.one('select').append('<option value="'+ subjectJson[i].subjectEntryId +'">' + subjectJson[i].name + "</option>");
+			}
+		}
 	}
 	function validateNumberQuestion()
 	{
